@@ -21,59 +21,13 @@ namespace Laba2_1
         public string name;
         public double CofH;
         public double CofW;
-    }
 
-
-    class Body
-    {
-        protected double hight { get; set; }
-        protected double weight { get; set; }
-        protected double chest { get; set; }
-        public Body(double H, double W, double C)
+        public Titans(Titans Next, string name, double CofH, double CofW)
         {
-            this.hight = H;
-            this.weight = W;
-            this.chest = C;
-        }
-        public void tInt()
-        {
-            this.hight = Math.Round(this.hight);
-            this.weight = Math.Round(this.weight);
-            this.chest = Math.Round(this.chest);
-        }
-
-
-
-        public override string ToString()
-        {
-            return $"Рост: {hight}\nВес: {weight}\nОбхват груди: {chest}";
-        }
-    }
-
-    class AOT : Body
-    {
-        public string titan_name { get; set; }
-        public double titan_h_cof { get; set; }
-        public double titan_w_cof { get; set; }
-
-        public AOT(string titan_name, double titan_h_cof, double titan_w_cof, double hight, double weight, double chest) : base(hight, weight, chest)
-        {
-            this.titan_name = titan_name;
-            this.titan_h_cof = titan_h_cof;
-            this.titan_w_cof = titan_w_cof;
-        }
-
-
-        public void ToTitan()
-        {
-            this.hight *= titan_h_cof;
-            this.chest *= titan_h_cof;
-            this.weight *= titan_w_cof;
-
-        }
-        public long SkreemArea()
-        {
-            return (long)(this.chest *  8 / 27);
+            this.Next = Next;
+            this.name = name;
+            this.CofH = CofH;
+            this.CofW = CofW;
         }
     }
 
@@ -103,50 +57,17 @@ namespace Laba2_1
         }
         public void FillTitans(Titans P)
         {
-            P.name = "Атакующий титан";
-            P.CofH = 8.75;
-            P.CofW = 45.5;
-            P.Next = new Titans();
-            P.Next.name = "Колосальный титан";
-            P.Next.CofH = 37.55;
-            P.Next.CofW = 120.1;
-            P.Next.Next = new Titans();
-            P.Next.Next.name = "Титан молотобоец";
-            P.Next.Next.CofH = 9.46;
-            P.Next.Next.CofW = 81.9;
-            P.Next.Next.Next = new Titans();
-            P.Next.Next.Next.name = "Титан прародитель";
-            P.Next.Next.Next.CofH = 245.65;
-            P.Next.Next.Next.CofW = 153.88;
-            P.Next.Next.Next.Next = new Titans();
-            P.Next.Next.Next.Next.name = "Звероподобный титан";
-            P.Next.Next.Next.Next.CofH = 9.85;
-            P.Next.Next.Next.Next.CofW = 38.7;
-            P.Next.Next.Next.Next.Next = new Titans();
-            P.Next.Next.Next.Next.Next.name = "Челюсти";
-            P.Next.Next.Next.Next.Next.CofH = 3.64;
-            P.Next.Next.Next.Next.Next.CofW = 6.1;
-            P.Next.Next.Next.Next.Next.Next = new Titans();
-            P.Next.Next.Next.Next.Next.Next.name = "Челюсти крылатый";
-            P.Next.Next.Next.Next.Next.Next.CofH = 3.64;
-            P.Next.Next.Next.Next.Next.Next.CofW = 5.1;
-            P.Next.Next.Next.Next.Next.Next.Next = new Titans();
-            P.Next.Next.Next.Next.Next.Next.Next.name = "Женская особь";
-            P.Next.Next.Next.Next.Next.Next.Next.CofH = 8.23;
-            P.Next.Next.Next.Next.Next.Next.Next.CofW = 36.6;
-            P.Next.Next.Next.Next.Next.Next.Next.Next = new Titans();
-            P.Next.Next.Next.Next.Next.Next.Next.Next.name = "Титан перевозчик";
-            P.Next.Next.Next.Next.Next.Next.Next.Next.CofH = 2.34;
-            P.Next.Next.Next.Next.Next.Next.Next.Next.CofW = 4.8;
-            P.Next.Next.Next.Next.Next.Next.Next.Next.Next = new Titans();
-            P.Next.Next.Next.Next.Next.Next.Next.Next.Next.name = "Бронированный титан";
-            P.Next.Next.Next.Next.Next.Next.Next.Next.Next.CofH = 9.07;
-            P.Next.Next.Next.Next.Next.Next.Next.Next.Next.CofW = 75.8;
-            P.Next.Next.Next.Next.Next.Next.Next.Next.Next.Next = new Titans();
-            P.Next.Next.Next.Next.Next.Next.Next.Next.Next.Next.name = "Зубастый титан";
-            P.Next.Next.Next.Next.Next.Next.Next.Next.Next.Next.CofH = 3.64;
-            P.Next.Next.Next.Next.Next.Next.Next.Next.Next.Next.CofW = 6.1;
-
+            
+            P.Next = new Titans(null, "Колосальный титан", 37.55, 120.1);
+            P.Next.Next = new Titans(null, "Титан молотобоец", 9.46, 81.9);
+            P.Next.Next.Next = new Titans(null, "Титан прародитель", 245.65, 153.88);
+            P.Next.Next.Next.Next = new Titans(null, "Звероподобный титан", 9.85, 38.7);
+            P.Next.Next.Next.Next.Next = new Titans(null, "Челюсти", 3.64, 6.1);
+            P.Next.Next.Next.Next.Next.Next = new Titans(null, "Челюсти крылатый", 3.64, 5.1);
+            P.Next.Next.Next.Next.Next.Next.Next = new Titans(null, "Женская особь", 8.23, 36.6);
+            P.Next.Next.Next.Next.Next.Next.Next.Next = new Titans(null, "Титан перевозчик", 2.34, 4.8);
+            P.Next.Next.Next.Next.Next.Next.Next.Next.Next = new Titans(null, "Бронированный титан", 9.07, 75.8);
+            P.Next.Next.Next.Next.Next.Next.Next.Next.Next.Next = new Titans(null, "Зубастый титан", 3.64, 6.1);
         }
         public void FindTitan(Titans P, ref string N, ref double th, ref double tw)
         {
@@ -169,7 +90,7 @@ namespace Laba2_1
         static void Main()
         {
             Program program = new Program();
-            Titans titans = new Titans();
+            Titans titans = new Titans(null, "Атакующий титан", 8.75, 45.5);
             program.FillTitans(titans);
             //Console.WriteLine("Введите рост человека: ");
             //double Hight = program.ABS(program.DurDub(Console.ReadLine()));
