@@ -15,22 +15,6 @@ using System.Threading.Tasks;
 //другие методы базового и дочернего классов.
 namespace Laba2_1
 {
-    class Titans
-    {
-        public Titans Next;
-        public string name;
-        public double CofH;
-        public double CofW;
-
-        public Titans(Titans Next, string name, double CofH, double CofW)
-        {
-            this.Next = Next;
-            this.name = name;
-            this.CofH = CofH;
-            this.CofW = CofW;
-        }
-    }
-
     internal class Program
     {
         public double DurDub(String s)
